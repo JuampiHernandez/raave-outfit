@@ -1,0 +1,501 @@
+0 verbose cli /Users/juanhernandez/.asdf/installs/nodejs/20.12.2/bin/node /Users/juanhernandez/.asdf/installs/nodejs/20.12.2/bin/npm
+1 info using npm@10.5.0
+2 info using node@v20.12.2
+3 timing npm:load:whichnode Completed in 1ms
+4 timing config:load:defaults Completed in 0ms
+5 timing config:load:file:/Users/juanhernandez/.asdf/installs/nodejs/20.12.2/lib/node_modules/npm/npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 1ms
+8 timing config:load:env Completed in 0ms
+9 timing config:load:file:/Users/juanhernandez/Desktop/Development/Juampi/raave_app/.npmrc Completed in 0ms
+10 timing config:load:project Completed in 1ms
+11 timing config:load:file:/Users/juanhernandez/.npmrc Completed in 0ms
+12 timing config:load:user Completed in 0ms
+13 timing config:load:file:/Users/juanhernandez/.asdf/installs/nodejs/20.12.2/etc/npmrc Completed in 0ms
+14 timing config:load:global Completed in 0ms
+15 timing config:load:setEnvs Completed in 0ms
+16 timing config:load Completed in 4ms
+17 timing npm:load:configload Completed in 4ms
+18 timing config:load:flatten Completed in 1ms
+19 timing npm:load:mkdirpcache Completed in 0ms
+20 timing npm:load:mkdirplogs Completed in 0ms
+21 verbose title npm install
+22 verbose argv "install" "--cache" ".npm-cache"
+23 timing npm:load:setTitle Completed in 0ms
+24 timing npm:load:display Completed in 0ms
+25 verbose logfile logs-max:10 dir:/Users/juanhernandez/Desktop/Development/Juampi/raave_app/.npm-cache/_logs/2025-11-09T16_11_31_469Z-
+26 verbose logfile /Users/juanhernandez/Desktop/Development/Juampi/raave_app/.npm-cache/_logs/2025-11-09T16_11_31_469Z-debug-0.log
+27 timing npm:load:logFile Completed in 4ms
+28 timing npm:load:timers Completed in 0ms
+29 timing npm:load:configScope Completed in 0ms
+30 timing npm:load Completed in 15ms
+31 timing arborist:ctor Completed in 0ms
+32 silly logfile done cleaning log files
+33 timing idealTree:init Completed in 24ms
+34 timing idealTree:userRequests Completed in 0ms
+35 silly idealTree buildDeps
+36 silly fetch manifest @google/genai@^1.0.0
+37 timing arborist:ctor Completed in 0ms
+38 http fetch GET 200 https://registry.npmjs.org/@google%2fgenai 14ms (cache hit)
+39 silly fetch manifest @modelcontextprotocol/sdk@^1.20.1
+40 http fetch GET 200 https://registry.npmjs.org/@modelcontextprotocol%2fsdk 172ms (cache miss)
+41 silly fetch manifest @cfworker/json-schema@^4.1.1
+42 http fetch GET 200 https://registry.npmjs.org/@cfworker%2fjson-schema 57ms (cache miss)
+43 silly placeDep ROOT @google/genai@1.29.0 REPLACE for: colores-del-sol@1.0.0 want: ^1.0.0
+44 silly fetch manifest google-auth-library@^10.3.0
+45 http fetch GET 200 https://registry.npmjs.org/google-auth-library 4ms (cache hit)
+46 timing idealTree:#root Completed in 259ms
+47 silly placeDep ROOT google-auth-library@10.5.0 OK for: @google/genai@1.29.0 want: ^10.3.0
+48 silly fetch manifest base64-js@^1.3.0
+49 silly fetch manifest ecdsa-sig-formatter@^1.0.11
+50 silly fetch manifest gaxios@^7.0.0
+51 silly fetch manifest gcp-metadata@^8.0.0
+52 silly fetch manifest google-logging-utils@^1.0.0
+53 silly fetch manifest gtoken@^8.0.0
+54 silly fetch manifest jws@^4.0.0
+55 http fetch GET 200 https://registry.npmjs.org/ecdsa-sig-formatter 12ms (cache hit)
+56 http fetch GET 200 https://registry.npmjs.org/base64-js 13ms (cache hit)
+57 http fetch GET 200 https://registry.npmjs.org/jws 12ms (cache hit)
+58 http fetch GET 200 https://registry.npmjs.org/gcp-metadata 14ms (cache hit)
+59 http fetch GET 200 https://registry.npmjs.org/gtoken 14ms (cache hit)
+60 http fetch GET 200 https://registry.npmjs.org/google-logging-utils 16ms (cache hit)
+61 http fetch GET 200 https://registry.npmjs.org/gaxios 17ms (cache hit)
+62 timing idealTree:node_modules/@google/genai Completed in 20ms
+63 silly placeDep ROOT base64-js@1.5.1 OK for: google-auth-library@10.5.0 want: ^1.3.0
+64 silly placeDep ROOT ecdsa-sig-formatter@1.0.11 OK for: google-auth-library@10.5.0 want: ^1.0.11
+65 silly placeDep ROOT gaxios@7.1.3 OK for: google-auth-library@10.5.0 want: ^7.0.0
+66 silly placeDep ROOT gcp-metadata@8.1.2 OK for: google-auth-library@10.5.0 want: ^8.0.0
+67 silly placeDep ROOT google-logging-utils@1.1.2 OK for: google-auth-library@10.5.0 want: ^1.0.0
+68 silly placeDep ROOT gtoken@8.0.0 OK for: google-auth-library@10.5.0 want: ^8.0.0
+69 silly placeDep ROOT jws@4.0.0 OK for: google-auth-library@10.5.0 want: ^4.0.0
+70 silly fetch manifest safe-buffer@^5.0.1
+71 silly fetch manifest extend@^3.0.2
+72 silly fetch manifest https-proxy-agent@^7.0.1
+73 silly fetch manifest node-fetch@^3.3.2
+74 silly fetch manifest rimraf@^5.0.1
+75 silly fetch manifest json-bigint@^1.0.0
+76 silly fetch manifest jwa@^2.0.0
+77 http fetch GET 200 https://registry.npmjs.org/extend 5ms (cache hit)
+78 http fetch GET 200 https://registry.npmjs.org/jwa 4ms (cache hit)
+79 http fetch GET 200 https://registry.npmjs.org/safe-buffer 5ms (cache hit)
+80 http fetch GET 200 https://registry.npmjs.org/json-bigint 5ms (cache hit)
+81 http fetch GET 200 https://registry.npmjs.org/https-proxy-agent 6ms (cache hit)
+82 http fetch GET 200 https://registry.npmjs.org/node-fetch 6ms (cache hit)
+83 http fetch GET 200 https://registry.npmjs.org/rimraf 51ms (cache miss)
+84 timing idealTree:node_modules/google-auth-library Completed in 57ms
+85 timing idealTree:node_modules/base64-js Completed in 0ms
+86 silly placeDep ROOT safe-buffer@5.2.1 OK for: ecdsa-sig-formatter@1.0.11 want: ^5.0.1
+87 timing idealTree:node_modules/ecdsa-sig-formatter Completed in 1ms
+88 silly placeDep ROOT extend@3.0.2 OK for: gaxios@7.1.3 want: ^3.0.2
+89 silly placeDep ROOT https-proxy-agent@7.0.6 OK for: gaxios@7.1.3 want: ^7.0.1
+90 silly placeDep ROOT node-fetch@3.3.2 OK for: gaxios@7.1.3 want: ^3.3.2
+91 silly placeDep ROOT rimraf@5.0.10 OK for: gaxios@7.1.3 want: ^5.0.1
+92 silly fetch manifest debug@4
+93 silly fetch manifest agent-base@^7.1.2
+94 silly fetch manifest data-uri-to-buffer@^4.0.0
+95 silly fetch manifest fetch-blob@^3.1.4
+96 silly fetch manifest formdata-polyfill@^4.0.10
+97 http fetch GET 200 https://registry.npmjs.org/agent-base 5ms (cache hit)
+98 http fetch GET 200 https://registry.npmjs.org/debug 5ms (cache hit)
+99 http fetch GET 200 https://registry.npmjs.org/data-uri-to-buffer 54ms (cache miss)
+100 http fetch GET 200 https://registry.npmjs.org/fetch-blob 109ms (cache miss)
+101 http fetch GET 200 https://registry.npmjs.org/formdata-polyfill 113ms (cache miss)
+102 timing idealTree:node_modules/gaxios Completed in 116ms
+103 timing idealTree:node_modules/extend Completed in 0ms
+104 silly placeDep ROOT json-bigint@1.0.0 OK for: gcp-metadata@8.1.2 want: ^1.0.0
+105 silly fetch manifest bignumber.js@^9.0.0
+106 http fetch GET 200 https://registry.npmjs.org/bignumber.js 2ms (cache hit)
+107 timing idealTree:node_modules/gcp-metadata Completed in 4ms
+108 timing idealTree:node_modules/google-logging-utils Completed in 0ms
+109 timing idealTree:node_modules/gtoken Completed in 0ms
+110 silly placeDep ROOT agent-base@7.1.4 OK for: https-proxy-agent@7.0.6 want: ^7.1.2
+111 silly placeDep ROOT debug@4.4.3 OK for: https-proxy-agent@7.0.6 want: 4
+112 silly fetch manifest ms@^2.1.3
+113 http fetch GET 200 https://registry.npmjs.org/ms 1ms (cache hit)
+114 timing idealTree:node_modules/https-proxy-agent Completed in 4ms
+115 timing idealTree:node_modules/agent-base Completed in 0ms
+116 silly placeDep ROOT ms@2.1.3 OK for: debug@4.4.3 want: ^2.1.3
+117 timing idealTree:node_modules/debug Completed in 1ms
+118 silly placeDep ROOT bignumber.js@9.3.1 OK for: json-bigint@1.0.0 want: ^9.0.0
+119 timing idealTree:node_modules/json-bigint Completed in 0ms
+120 timing idealTree:node_modules/bignumber.js Completed in 0ms
+121 silly placeDep ROOT jwa@2.0.1 OK for: jws@4.0.0 want: ^2.0.0
+122 silly fetch manifest buffer-equal-constant-time@^1.0.1
+123 http fetch GET 200 https://registry.npmjs.org/buffer-equal-constant-time 1ms (cache hit)
+124 timing idealTree:node_modules/jws Completed in 3ms
+125 silly placeDep ROOT buffer-equal-constant-time@1.0.1 OK for: jwa@2.0.1 want: ^1.0.1
+126 timing idealTree:node_modules/jwa Completed in 0ms
+127 timing idealTree:node_modules/buffer-equal-constant-time Completed in 0ms
+128 timing idealTree:node_modules/ms Completed in 0ms
+129 silly placeDep ROOT data-uri-to-buffer@4.0.1 OK for: node-fetch@3.3.2 want: ^4.0.0
+130 silly placeDep ROOT fetch-blob@3.2.0 OK for: node-fetch@3.3.2 want: ^3.1.4
+131 silly placeDep ROOT formdata-polyfill@4.0.10 OK for: node-fetch@3.3.2 want: ^4.0.10
+132 silly fetch manifest node-domexception@^1.0.0
+133 silly fetch manifest web-streams-polyfill@^3.0.3
+134 http fetch GET 200 https://registry.npmjs.org/node-domexception 43ms (cache miss)
+135 http fetch GET 200 https://registry.npmjs.org/web-streams-polyfill 48ms (cache miss)
+136 timing idealTree:node_modules/node-fetch Completed in 51ms
+137 timing idealTree:node_modules/data-uri-to-buffer Completed in 0ms
+138 silly placeDep ROOT node-domexception@1.0.0 OK for: fetch-blob@3.2.0 want: ^1.0.0
+139 silly placeDep ROOT web-streams-polyfill@3.3.3 OK for: fetch-blob@3.2.0 want: ^3.0.3
+140 timing idealTree:node_modules/fetch-blob Completed in 1ms
+141 timing idealTree:node_modules/formdata-polyfill Completed in 0ms
+142 timing idealTree:node_modules/node-domexception Completed in 0ms
+143 timing idealTree:node_modules/rimraf Completed in 0ms
+144 timing idealTree:node_modules/safe-buffer Completed in 0ms
+145 timing idealTree:node_modules/web-streams-polyfill Completed in 0ms
+146 timing idealTree:buildDeps Completed in 517ms
+147 timing idealTree:fixDepFlags Completed in 1ms
+148 timing idealTree Completed in 543ms
+149 timing reify:loadTrees Completed in 543ms
+150 timing reify:diffTrees Completed in 3ms
+151 silly reify mark retired [
+151 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@google/genai'
+151 silly reify ]
+152 silly reify mark retired [
+152 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/gaxios'
+152 silly reify ]
+153 silly reify mark retired [
+153 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/gcp-metadata'
+153 silly reify ]
+154 silly reify mark retired [
+154 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/google-auth-library'
+154 silly reify ]
+155 silly reify mark retired [
+155 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/google-logging-utils'
+155 silly reify ]
+156 silly reify mark retired [
+156 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/gtoken'
+156 silly reify ]
+157 silly reify mark retired [
+157 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/is-stream'
+157 silly reify ]
+158 silly reify mark retired [
+158 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/node-fetch'
+158 silly reify ]
+159 silly reify mark retired [
+159 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/tr46'
+159 silly reify ]
+160 silly reify mark retired [
+160 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/uuid',
+160 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.bin/uuid'
+160 silly reify ]
+161 silly reify mark retired [
+161 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/webidl-conversions'
+161 silly reify ]
+162 silly reify mark retired [
+162 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/whatwg-url'
+162 silly reify ]
+163 silly reify moves {
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@google/genai': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@google/.genai-KcunhlqI',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/gaxios': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.gaxios-eqXjvW86',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/gcp-metadata': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.gcp-metadata-esf8dbvZ',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/google-auth-library': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.google-auth-library-UQUyEp84',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/google-logging-utils': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.google-logging-utils-NDbUcdmF',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/gtoken': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.gtoken-Vic9fAkQ',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/is-stream': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.is-stream-brNrDckG',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/node-fetch': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.node-fetch-07gUmE1y',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/tr46': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.tr46-sKCmPqoE',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/uuid': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.uuid-SQOdh0jA',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.bin/uuid': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.bin/.uuid-VbeDhi57',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/webidl-conversions': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.webidl-conversions-AcM9xOWD',
+163 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/whatwg-url': '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/.whatwg-url-oTvSg7Og'
+163 silly reify }
+164 timing reify:retireShallow Completed in 3ms
+165 timing reify:createSparse Completed in 1ms
+166 timing reify:loadBundles Completed in 0ms
+167 silly audit bulk request {
+167 silly audit   '@alloc/quick-lru': [ '5.2.0' ],
+167 silly audit   '@isaacs/cliui': [ '8.0.2' ],
+167 silly audit   '@jridgewell/gen-mapping': [ '0.3.13' ],
+167 silly audit   '@jridgewell/resolve-uri': [ '3.1.2' ],
+167 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+167 silly audit   '@jridgewell/trace-mapping': [ '0.3.31' ],
+167 silly audit   '@next/env': [ '14.2.33' ],
+167 silly audit   '@next/swc-darwin-arm64': [ '14.2.33' ],
+167 silly audit   '@next/swc-darwin-x64': [ '14.2.33' ],
+167 silly audit   '@next/swc-linux-arm64-gnu': [ '14.2.33' ],
+167 silly audit   '@next/swc-linux-arm64-musl': [ '14.2.33' ],
+167 silly audit   '@next/swc-linux-x64-gnu': [ '14.2.33' ],
+167 silly audit   '@next/swc-linux-x64-musl': [ '14.2.33' ],
+167 silly audit   '@next/swc-win32-arm64-msvc': [ '14.2.33' ],
+167 silly audit   '@next/swc-win32-ia32-msvc': [ '14.2.33' ],
+167 silly audit   '@next/swc-win32-x64-msvc': [ '14.2.33' ],
+167 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+167 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+167 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+167 silly audit   '@pkgjs/parseargs': [ '0.11.0' ],
+167 silly audit   '@swc/counter': [ '0.1.3' ],
+167 silly audit   '@swc/helpers': [ '0.5.5' ],
+167 silly audit   '@types/node': [ '20.19.24' ],
+167 silly audit   '@types/prop-types': [ '15.7.15' ],
+167 silly audit   '@types/react': [ '18.3.26' ],
+167 silly audit   '@types/react-dom': [ '18.3.7' ],
+167 silly audit   'ansi-regex': [ '6.2.2', '5.0.1' ],
+167 silly audit   'ansi-styles': [ '6.2.3', '4.3.0' ],
+167 silly audit   'any-promise': [ '1.3.0' ],
+167 silly audit   anymatch: [ '3.1.3' ],
+167 silly audit   arg: [ '5.0.2' ],
+167 silly audit   autoprefixer: [ '10.4.21' ],
+167 silly audit   'balanced-match': [ '1.0.2' ],
+167 silly audit   'baseline-browser-mapping': [ '2.8.25' ],
+167 silly audit   'binary-extensions': [ '2.3.0' ],
+167 silly audit   'brace-expansion': [ '2.0.2' ],
+167 silly audit   braces: [ '3.0.3' ],
+167 silly audit   browserslist: [ '4.27.0' ],
+167 silly audit   busboy: [ '1.6.0' ],
+167 silly audit   'camelcase-css': [ '2.0.1' ],
+167 silly audit   'caniuse-lite': [ '1.0.30001754' ],
+167 silly audit   chokidar: [ '3.6.0' ],
+167 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+167 silly audit   'client-only': [ '0.0.1' ],
+167 silly audit   'color-convert': [ '2.0.1' ],
+167 silly audit   'color-name': [ '1.1.4' ],
+167 silly audit   commander: [ '4.1.1' ],
+167 silly audit   'cross-spawn': [ '7.0.6' ],
+167 silly audit   cssesc: [ '3.0.0' ],
+167 silly audit   csstype: [ '3.1.3' ],
+167 silly audit   didyoumean: [ '1.2.2' ],
+167 silly audit   dlv: [ '1.1.3' ],
+167 silly audit   eastasianwidth: [ '0.2.0' ],
+167 silly audit   'electron-to-chromium': [ '1.5.249' ],
+167 silly audit   'emoji-regex': [ '9.2.2', '8.0.0' ],
+167 silly audit   escalade: [ '3.2.0' ],
+167 silly audit   'fast-glob': [ '3.3.3' ],
+167 silly audit   fastq: [ '1.19.1' ],
+167 silly audit   'fill-range': [ '7.1.1' ],
+167 silly audit   'foreground-child': [ '3.3.1' ],
+167 silly audit   'fraction.js': [ '4.3.7' ],
+167 silly audit   fsevents: [ '2.3.3' ],
+167 silly audit   'function-bind': [ '1.1.2' ],
+167 silly audit   glob: [ '10.4.5' ],
+167 silly audit   'graceful-fs': [ '4.2.11' ],
+167 silly audit   hasown: [ '2.0.2' ],
+167 silly audit   'is-binary-path': [ '2.1.0' ],
+167 silly audit   'is-core-module': [ '2.16.1' ],
+167 silly audit   'is-extglob': [ '2.1.1' ],
+167 silly audit   'is-fullwidth-code-point': [ '3.0.0' ],
+167 silly audit   'is-glob': [ '4.0.3' ],
+167 silly audit   'is-number': [ '7.0.0' ],
+167 silly audit   isexe: [ '2.0.0' ],
+167 silly audit   jackspeak: [ '3.4.3' ],
+167 silly audit   jiti: [ '1.21.7' ],
+167 silly audit   'js-tokens': [ '4.0.0' ],
+167 silly audit   lilconfig: [ '3.1.3' ],
+167 silly audit   'lines-and-columns': [ '1.2.4' ],
+167 silly audit   'loose-envify': [ '1.4.0' ],
+167 silly audit   'lru-cache': [ '10.4.3' ],
+167 silly audit   merge2: [ '1.4.1' ],
+167 silly audit   micromatch: [ '4.0.8' ],
+167 silly audit   minimatch: [ '9.0.5' ],
+167 silly audit   minipass: [ '7.1.2' ],
+167 silly audit   mz: [ '2.7.0' ],
+167 silly audit   nanoid: [ '3.3.11' ],
+167 silly audit   next: [ '14.2.33' ],
+167 silly audit   postcss: [ '8.4.31', '8.5.6' ],
+167 silly audit   'node-releases': [ '2.0.27' ],
+167 silly audit   'normalize-path': [ '3.0.0' ],
+167 silly audit   'normalize-range': [ '0.1.2' ],
+167 silly audit   'object-assign': [ '4.1.1' ],
+167 silly audit   'object-hash': [ '3.0.0' ],
+167 silly audit   'package-json-from-dist': [ '1.0.1' ],
+167 silly audit   'path-key': [ '3.1.1' ],
+167 silly audit   'path-parse': [ '1.0.7' ],
+167 silly audit   'path-scurry': [ '1.11.1' ],
+167 silly audit   picocolors: [ '1.1.1' ],
+167 silly audit   picomatch: [ '2.3.1' ],
+167 silly audit   pify: [ '2.3.0' ],
+167 silly audit   pirates: [ '4.0.7' ],
+167 silly audit   'postcss-import': [ '15.1.0' ],
+167 silly audit   'postcss-js': [ '4.1.0' ],
+167 silly audit   'postcss-load-config': [ '6.0.1' ],
+167 silly audit   'postcss-nested': [ '6.2.0' ],
+167 silly audit   'postcss-selector-parser': [ '6.1.2' ],
+167 silly audit   'postcss-value-parser': [ '4.2.0' ],
+167 silly audit   'queue-microtask': [ '1.2.3' ],
+167 silly audit   react: [ '18.3.1' ],
+167 silly audit   'react-dom': [ '18.3.1' ],
+167 silly audit   'read-cache': [ '1.0.0' ],
+167 silly audit   readdirp: [ '3.6.0' ],
+167 silly audit   resolve: [ '1.22.11' ],
+167 silly audit   reusify: [ '1.1.0' ],
+167 silly audit   'run-parallel': [ '1.2.0' ],
+167 silly audit   scheduler: [ '0.23.2' ],
+167 silly audit   'shebang-command': [ '2.0.0' ],
+167 silly audit   'shebang-regex': [ '3.0.0' ],
+167 silly audit   'signal-exit': [ '4.1.0' ],
+167 silly audit   'source-map-js': [ '1.2.1' ],
+167 silly audit   streamsearch: [ '1.1.0' ],
+167 silly audit   'string-width': [ '5.1.2', '4.2.3' ],
+167 silly audit   'strip-ansi': [ '6.0.1', '7.1.2' ],
+167 silly audit   'styled-jsx': [ '5.1.1' ],
+167 silly audit   sucrase: [ '3.35.0' ],
+167 silly audit   'supports-preserve-symlinks-flag': [ '1.0.0' ],
+167 silly audit   tailwindcss: [ '3.4.18' ],
+167 silly audit   thenify: [ '3.3.1' ],
+167 silly audit   'thenify-all': [ '1.6.0' ],
+167 silly audit   'to-regex-range': [ '5.0.1' ],
+167 silly audit   'ts-interface-checker': [ '0.1.13' ],
+167 silly audit   tslib: [ '2.8.1' ],
+167 silly audit   typescript: [ '5.9.3' ],
+167 silly audit   'undici-types': [ '6.21.0' ],
+167 silly audit   'update-browserslist-db': [ '1.1.4' ],
+167 silly audit   'util-deprecate': [ '1.0.2' ],
+167 silly audit   which: [ '2.0.2' ],
+167 silly audit   'wrap-ansi': [ '8.1.0', '7.0.0' ],
+167 silly audit   ws: [ '8.18.3' ],
+167 silly audit   '@google/genai': [ '1.29.0' ],
+167 silly audit   'google-auth-library': [ '10.5.0' ],
+167 silly audit   'base64-js': [ '1.5.1' ],
+167 silly audit   'ecdsa-sig-formatter': [ '1.0.11' ],
+167 silly audit   gaxios: [ '7.1.3' ],
+167 silly audit   'gcp-metadata': [ '8.1.2' ],
+167 silly audit   'google-logging-utils': [ '1.1.2' ],
+167 silly audit   gtoken: [ '8.0.0' ],
+167 silly audit   jws: [ '4.0.0' ],
+167 silly audit   'safe-buffer': [ '5.2.1' ],
+167 silly audit   extend: [ '3.0.2' ],
+167 silly audit   'https-proxy-agent': [ '7.0.6' ],
+167 silly audit   'node-fetch': [ '3.3.2' ],
+167 silly audit   rimraf: [ '5.0.10' ],
+167 silly audit   'json-bigint': [ '1.0.0' ],
+167 silly audit   'agent-base': [ '7.1.4' ],
+167 silly audit   debug: [ '4.4.3' ],
+167 silly audit   ms: [ '2.1.3' ],
+167 silly audit   'bignumber.js': [ '9.3.1' ],
+167 silly audit   jwa: [ '2.0.1' ],
+167 silly audit   'buffer-equal-constant-time': [ '1.0.1' ],
+167 silly audit   'data-uri-to-buffer': [ '4.0.1' ],
+167 silly audit   'fetch-blob': [ '3.2.0' ],
+167 silly audit   'formdata-polyfill': [ '4.0.10' ],
+167 silly audit   'node-domexception': [ '1.0.0' ],
+167 silly audit   'web-streams-polyfill': [ '3.3.3' ]
+167 silly audit }
+168 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-win32-x64-msvc
+169 silly reify mark deleted [
+169 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-win32-x64-msvc'
+169 silly reify ]
+170 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-win32-ia32-msvc
+171 silly reify mark deleted [
+171 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-win32-ia32-msvc'
+171 silly reify ]
+172 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-win32-arm64-msvc
+173 silly reify mark deleted [
+173 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-win32-arm64-msvc'
+173 silly reify ]
+174 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-x64-musl
+175 silly reify mark deleted [
+175 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-x64-musl'
+175 silly reify ]
+176 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-x64-gnu
+177 silly reify mark deleted [
+177 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-x64-gnu'
+177 silly reify ]
+178 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-arm64-musl
+179 silly reify mark deleted [
+179 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-arm64-musl'
+179 silly reify ]
+180 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-arm64-gnu
+181 silly reify mark deleted [
+181 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-linux-arm64-gnu'
+181 silly reify ]
+182 verbose reify failed optional dependency /Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-darwin-x64
+183 silly reify mark deleted [
+183 silly reify   '/Users/juanhernandez/Desktop/Development/Juampi/raave_app/node_modules/@next/swc-darwin-x64'
+183 silly reify ]
+184 timing reifyNode:node_modules/@next/swc-win32-x64-msvc Completed in 4ms
+185 timing reifyNode:node_modules/@next/swc-win32-ia32-msvc Completed in 4ms
+186 timing reifyNode:node_modules/@next/swc-win32-arm64-msvc Completed in 4ms
+187 timing reifyNode:node_modules/@next/swc-linux-x64-musl Completed in 4ms
+188 timing reifyNode:node_modules/@next/swc-linux-x64-gnu Completed in 3ms
+189 timing reifyNode:node_modules/@next/swc-linux-arm64-musl Completed in 3ms
+190 timing reifyNode:node_modules/@next/swc-linux-arm64-gnu Completed in 3ms
+191 timing reifyNode:node_modules/@next/swc-darwin-x64 Completed in 3ms
+192 silly tarball no local data for web-streams-polyfill@https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.3.3.tgz. Extracting by manifest.
+193 silly tarball no local data for node-domexception@https://registry.npmjs.org/node-domexception/-/node-domexception-1.0.0.tgz. Extracting by manifest.
+194 silly tarball no local data for fetch-blob@https://registry.npmjs.org/fetch-blob/-/fetch-blob-3.2.0.tgz. Extracting by manifest.
+195 silly tarball no local data for rimraf@https://registry.npmjs.org/rimraf/-/rimraf-5.0.10.tgz. Extracting by manifest.
+196 silly tarball no local data for node-fetch@https://registry.npmjs.org/node-fetch/-/node-fetch-3.3.2.tgz. Extracting by manifest.
+197 silly tarball no local data for gtoken@https://registry.npmjs.org/gtoken/-/gtoken-8.0.0.tgz. Extracting by manifest.
+198 silly tarball no local data for google-logging-utils@https://registry.npmjs.org/google-logging-utils/-/google-logging-utils-1.1.2.tgz. Extracting by manifest.
+199 silly tarball no local data for google-auth-library@https://registry.npmjs.org/google-auth-library/-/google-auth-library-10.5.0.tgz. Extracting by manifest.
+200 silly tarball no local data for gcp-metadata@https://registry.npmjs.org/gcp-metadata/-/gcp-metadata-8.1.2.tgz. Extracting by manifest.
+201 silly tarball no local data for gaxios@https://registry.npmjs.org/gaxios/-/gaxios-7.1.3.tgz. Extracting by manifest.
+202 silly tarball no local data for @google/genai@https://registry.npmjs.org/@google/genai/-/genai-1.29.0.tgz. Extracting by manifest.
+203 silly tarball no local data for data-uri-to-buffer@https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz. Extracting by manifest.
+204 silly tarball no local data for formdata-polyfill@https://registry.npmjs.org/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz. Extracting by manifest.
+205 timing reifyNode:node_modules/fsevents Completed in 23ms
+206 http fetch GET 200 https://registry.npmjs.org/node-domexception/-/node-domexception-1.0.0.tgz 59ms (cache miss)
+207 warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+208 timing reifyNode:node_modules/node-domexception Completed in 77ms
+209 http fetch GET 200 https://registry.npmjs.org/data-uri-to-buffer/-/data-uri-to-buffer-4.0.1.tgz 130ms (cache miss)
+210 timing reifyNode:node_modules/data-uri-to-buffer Completed in 139ms
+211 http fetch GET 200 https://registry.npmjs.org/fetch-blob/-/fetch-blob-3.2.0.tgz 138ms (cache miss)
+212 timing reifyNode:node_modules/fetch-blob Completed in 145ms
+213 http fetch GET 200 https://registry.npmjs.org/formdata-polyfill/-/formdata-polyfill-4.0.10.tgz 155ms (cache miss)
+214 timing reifyNode:node_modules/formdata-polyfill Completed in 164ms
+215 http fetch GET 200 https://registry.npmjs.org/gcp-metadata/-/gcp-metadata-8.1.2.tgz 160ms (cache miss)
+216 timing reifyNode:node_modules/gcp-metadata Completed in 167ms
+217 http fetch GET 200 https://registry.npmjs.org/rimraf/-/rimraf-5.0.10.tgz 163ms (cache miss)
+218 http fetch GET 200 https://registry.npmjs.org/google-logging-utils/-/google-logging-utils-1.1.2.tgz 163ms (cache miss)
+219 timing reifyNode:node_modules/google-logging-utils Completed in 170ms
+220 timing reifyNode:node_modules/rimraf Completed in 171ms
+221 http fetch GET 200 https://registry.npmjs.org/node-fetch/-/node-fetch-3.3.2.tgz 166ms (cache miss)
+222 timing reifyNode:node_modules/node-fetch Completed in 173ms
+223 http fetch GET 200 https://registry.npmjs.org/gtoken/-/gtoken-8.0.0.tgz 166ms (cache miss)
+224 timing reifyNode:node_modules/gtoken Completed in 173ms
+225 http fetch GET 200 https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.3.3.tgz 185ms (cache miss)
+226 http fetch GET 200 https://registry.npmjs.org/gaxios/-/gaxios-7.1.3.tgz 183ms (cache miss)
+227 timing reifyNode:node_modules/gaxios Completed in 191ms
+228 http fetch GET 200 https://registry.npmjs.org/google-auth-library/-/google-auth-library-10.5.0.tgz 184ms (cache miss)
+229 timing reifyNode:node_modules/web-streams-polyfill Completed in 192ms
+230 timing reifyNode:node_modules/google-auth-library Completed in 191ms
+231 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 253ms
+232 timing auditReport:getReport Completed in 254ms
+233 silly audit report {}
+234 timing auditReport:init Completed in 0ms
+235 timing reify:audit Completed in 254ms
+236 http fetch GET 200 https://registry.npmjs.org/@google/genai/-/genai-1.29.0.tgz 1001ms (cache miss)
+237 timing reifyNode:node_modules/@google/genai Completed in 1009ms
+238 timing reify:unpack Completed in 1010ms
+239 timing reify:unretire Completed in 0ms
+240 timing build:queue Completed in 1ms
+241 timing build:link:node_modules/rimraf Completed in 1ms
+242 timing build:link Completed in 1ms
+243 timing build:deps Completed in 2ms
+244 timing build Completed in 2ms
+245 timing reify:build Completed in 3ms
+246 timing reify:trash Completed in 13ms
+247 timing reify:save Completed in 17ms
+248 timing reify Completed in 1607ms
+249 silly ADD node_modules/web-streams-polyfill
+250 silly ADD node_modules/node-domexception
+251 silly ADD node_modules/formdata-polyfill
+252 silly ADD node_modules/fetch-blob
+253 silly ADD node_modules/data-uri-to-buffer
+254 silly ADD node_modules/rimraf
+255 silly ADD node_modules/fsevents
+256 silly ADD
+257 silly ADD
+258 silly ADD
+259 silly ADD
+260 silly ADD
+261 silly ADD
+262 silly ADD
+263 silly ADD
+264 silly REMOVE node_modules/whatwg-url
+265 silly REMOVE node_modules/webidl-conversions
+266 silly REMOVE node_modules/uuid
+267 silly REMOVE node_modules/tr46
+268 silly CHANGE node_modules/node-fetch
+269 silly REMOVE node_modules/is-stream
+270 silly CHANGE node_modules/gtoken
+271 silly CHANGE node_modules/google-logging-utils
+272 silly CHANGE node_modules/google-auth-library
+273 silly CHANGE node_modules/gcp-metadata
+274 silly CHANGE node_modules/gaxios
+275 silly CHANGE node_modules/@google/genai
+276 timing command:install Completed in 1611ms
+277 verbose exit 0
+278 timing npm Completed in 1717ms
+279 info ok
