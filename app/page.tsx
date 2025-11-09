@@ -40,14 +40,21 @@ export default function Home() {
     // Check for handle in URL params
     const params = new URLSearchParams(window.location.search);
     const urlHandle = params.get('handle');
-    if (urlHandle) {
+    if (urlHandle && urlHandle.trim()) {
       setHandle(urlHandle);
-      // Auto-trigger search after a short delay
-      setTimeout(() => {
-        handleSubmit();
-      }, 500);
     }
   }, []);
+
+  // Auto-trigger search when handle is set from URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlHandle = params.get('handle');
+    
+    if (urlHandle && urlHandle.trim() && handle === urlHandle && state === 'input') {
+      // Trigger search automatically
+      handleSubmit();
+    }
+  }, [handle]);
 
   const handleSubmit = async () => {
     try {

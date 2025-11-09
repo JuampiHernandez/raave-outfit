@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function OutfitPage({ params }: Props) {
   const handle = decodeURIComponent(params.handle);
   
-  // Redirect to home with handle pre-filled
+  // Redirect to home with handle parameter (will auto-load outfit)
   redirect(`/?handle=${encodeURIComponent(handle)}`);
 }
 

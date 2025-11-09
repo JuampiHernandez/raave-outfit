@@ -23,8 +23,8 @@ export default function ResultsDisplay({
   };
 
   const shareOnTwitter = () => {
-    // Create shareable URL with outfit page (for OG image)
-    const shareUrl = `${window.location.origin}/outfit/${encodeURIComponent(displayName)}`;
+    // Create shareable URL that shows the outfit directly
+    const shareUrl = `${window.location.origin}?handle=${encodeURIComponent(displayName)}`;
     
     // Open Twitter with pre-filled text and URL
     const tweetText = encodeURIComponent(
