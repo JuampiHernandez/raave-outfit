@@ -36,3 +36,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Documentation and markdown files (keep private)
+*.md
+!README.md
+/gemini_docs/
+/google_gemini/
+/mini_app_docs/
+/talent_docs/
+
