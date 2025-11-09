@@ -49,7 +49,7 @@ export default function ResultsDisplay({
 
       {/* Generated RAAVE Outfit - Center Display */}
       <div className="flex justify-center">
-        <div className="w-full max-w-md space-y-3">
+        <div className="w-full max-w-md">
           <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-sol-orange shadow-2xl ring-4 ring-sol-yellow/30">
             <Image
               src={`data:image/png;base64,${generatedImageBase64}`}
@@ -59,9 +59,6 @@ export default function ResultsDisplay({
               unoptimized
             />
           </div>
-          <p className="text-xs text-gray-500 text-center">
-            AI Generated with Google Gemini ✨
-          </p>
         </div>
       </div>
 
@@ -75,25 +72,12 @@ export default function ResultsDisplay({
         </button>
         <button
           onClick={shareOnTwitter}
-          className="flex-1 py-3 px-6 rounded-xl font-semibold text-white bg-blue-500 hover:bg-blue-600 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
+          className="flex-1 py-3 px-6 rounded-xl font-semibold text-white bg-blue-500 hover:bg-blue-600 hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
         >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
           Share on X
         </button>
       </div>
 
-      {/* Share instructions */}
-      <div className="text-center space-y-2">
-        <p className="text-sm text-gray-600">
-          Click "Share on X" to post your Colores del Sol look! 🌞
-        </p>
-        <p className="text-xs text-gray-500">
-          (The image will download automatically - just attach it to your tweet!)
-        </p>
-      </div>
-      
       {/* Try another button */}
       <div className="text-center">
         <button

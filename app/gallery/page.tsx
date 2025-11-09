@@ -38,12 +38,18 @@ export default function GalleryPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="text-center space-y-4 mb-12">
-          <Link 
-            href="/" 
-            className="inline-block mb-4 text-sol-orange hover:text-sol-red transition-colors"
-          >
-            ← Back to Outfitter
-          </Link>
+          <div className="flex justify-between items-center mb-4">
+            <Link 
+              href="/" 
+              className="inline-flex items-center gap-2 text-sol-orange hover:text-sol-red transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              Home
+            </Link>
+            <div></div>
+          </div>
           <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-sol bg-clip-text text-transparent">
             RAAVE Gallery
           </h1>
@@ -93,7 +99,7 @@ export default function GalleryPage() {
                 <div className="mb-6 text-center text-gray-600">
                   {outfits.length} outfit{outfits.length !== 1 ? 's' : ''} in the gallery
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                   {outfits.map((outfit) => (
                     <div
                       key={outfit.id}
@@ -108,20 +114,13 @@ export default function GalleryPage() {
                           className="object-cover"
                           unoptimized
                         />
-                        {/* Style Badge */}
-                        <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
-                          {outfit.style}
-                        </div>
                       </div>
 
                       {/* Outfit Info */}
-                      <div className="p-4">
-                        <h3 className="font-bold text-lg text-gray-800 mb-1">
+                      <div className="p-3">
+                        <h3 className="font-bold text-sm text-gray-800 truncate">
                           @{outfit.handle}
                         </h3>
-                        <p className="text-xs text-gray-500">
-                          {new Date(outfit.created_at).toLocaleDateString()}
-                        </p>
                       </div>
                     </div>
                   ))}
