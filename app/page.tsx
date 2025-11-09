@@ -29,12 +29,23 @@ export default function Home() {
   // Fixed to Twitter only
   const platform = 'twitter';
 
-  // Initialize Mini App SDK (optional, for when running in Base app)
+  // Initialize Mini App SDK and handle URL params
   useEffect(() => {
     // Signal that the app is ready to be displayed
     // The SDK will be added when deploying as a Mini App
     if (typeof window !== 'undefined' && (window as any).Farcaster) {
       (window as any).Farcaster.actions?.ready();
+    }
+
+    // Check for handle in URL params
+    const params = new URLSearchParams(window.location.search);
+    const urlHandle = params.get('handle');
+    if (urlHandle) {
+      setHandle(urlHandle);
+      // Auto-trigger search after a short delay
+      setTimeout(() => {
+        handleSubmit();
+      }, 500);
     }
   }, []);
 

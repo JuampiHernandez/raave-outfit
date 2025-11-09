@@ -23,14 +23,14 @@ export default function ResultsDisplay({
   };
 
   const shareOnTwitter = () => {
-    // Download the image first so it's ready to attach
-    downloadImage();
+    // Create shareable URL with outfit page (for OG image)
+    const shareUrl = `${window.location.origin}/outfit/${encodeURIComponent(displayName)}`;
     
-    // Open Twitter with pre-filled text
+    // Open Twitter with pre-filled text and URL
     const tweetText = encodeURIComponent(
       `Already have my outfit for @raave 🕺🏻\n\nCheck yours with @hoocrypto's outfit checker`
     );
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(shareUrl)}`;
     
     window.open(twitterUrl, '_blank');
   };
