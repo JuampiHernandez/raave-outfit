@@ -122,10 +122,6 @@ export default function HandleInput({
         )}
       </button>
 
-      {/* Helper Text */}
-      <p className="text-center text-sm text-gray-500">
-        We'll find your Twitter profile and create your perfect RAAVE outfit!
-      </p>
     </form>
   );
 }
