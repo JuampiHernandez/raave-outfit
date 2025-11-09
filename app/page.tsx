@@ -43,7 +43,38 @@ export default function Home() {
       setState('resolving');
       setError('');
 
-      // Step 1: Resolve identity via Talent Protocol
+      // Step 1: Check cache first (try to generate with cached data)
+      console.log(`[Frontend] Checking cache for: ${handle}`);
+      
+      const generateResponse = await fetch('/api/generate-outfit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          imageUrl: 'cached', // Signal to check cache first
+          username: handle
+        }),
+      });
+
+      // If cached outfit exists, use it immediately
+      if (generateResponse.ok) {
+        const { image, cached } = await generateResponse.json();
+        
+        if (cached) {
+          console.log(`[Frontend] ✅ Loaded from cache for: ${handle}`);
+          setResultData({
+            originalImageUrl: '', // Not needed for cached results
+            generatedImageBase64: image,
+            displayName: handle,
+          });
+          setState('results');
+          return;
+        }
+      }
+
+      // Step 2: No cache - need to fetch avatar and generate new outfit
+      console.log(`[Frontend] No cache found, fetching avatar for: ${handle}`);
+      setState('resolving');
+
       const resolveResponse = await fetch('/api/resolve-identity', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -58,26 +89,26 @@ export default function Home() {
       const { profile } = await resolveResponse.json();
       setProfileData(profile);
 
-      // Step 2: Generate outfit with Gemini
+      // Step 3: Generate new outfit with fetched avatar
       setState('generating');
 
-      const generateResponse = await fetch('/api/generate-outfit', {
+      const generateNewResponse = await fetch('/api/generate-outfit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           imageUrl: profile.imageUrl,
-          username: handle // Pass username for deterministic style selection
+          username: handle
         }),
       });
 
-      if (!generateResponse.ok) {
-        const errorData = await generateResponse.json();
+      if (!generateNewResponse.ok) {
+        const errorData = await generateNewResponse.json();
         throw new Error(errorData.error || 'Failed to generate outfit');
       }
 
-      const { image } = await generateResponse.json();
+      const { image } = await generateNewResponse.json();
 
-      // Step 3: Show results
+      // Step 4: Show results
       setResultData({
         originalImageUrl: profile.imageUrl,
         generatedImageBase64: image,

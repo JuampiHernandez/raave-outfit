@@ -28,7 +28,34 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { imageUrl, username, forceRegenerate } = body;
 
-    // Validate input
+    console.log(`[API] Generate outfit request - username: ${username}, imageUrl: ${imageUrl}`);
+
+    // Check cache first (unless force regenerate)
+    if (username && !forceRegenerate) {
+      const cached = await getCachedOutfit(username);
+      if (cached) {
+        console.log(`[API] ✅ Returning cached outfit for ${username}`);
+        return NextResponse.json({
+          success: true,
+          image: cached.generated_image_base64,
+          style: cached.style,
+          cached: true,
+        });
+      }
+      console.log(`[API] No cached outfit found for ${username}`);
+    }
+
+    // If imageUrl is 'cached', it means frontend is just checking cache
+    // Return 404 to signal no cache exists
+    if (imageUrl === 'cached') {
+      console.log(`[API] Cache-only request for ${username} - no cache found`);
+      return NextResponse.json(
+        { error: 'No cached outfit found', cached: false },
+        { status: 404 }
+      );
+    }
+
+    // Validate input for new generation
     if (!imageUrl || typeof imageUrl !== 'string') {
       return NextResponse.json(
         { error: 'Image URL is required' },
@@ -46,21 +73,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log(`[API] Generating outfit for user: ${username || 'unknown'}`);
-
-    // Check cache first (unless force regenerate)
-    if (username && !forceRegenerate) {
-      const cached = await getCachedOutfit(username);
-      if (cached) {
-        console.log(`[API] Returning cached outfit for ${username}`);
-        return NextResponse.json({
-          success: true,
-          image: cached.generated_image_base64,
-          style: cached.style,
-          cached: true,
-        });
-      }
-    }
+    console.log(`[API] Generating new outfit for user: ${username || 'unknown'}`)
 
     // Generate the outfit image (pass username for deterministic style)
     const generatedImageBase64 = await generateColoresSolOutfit(imageUrl, username);
