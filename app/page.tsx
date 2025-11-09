@@ -6,7 +6,7 @@ import HandleInput from '@/components/HandleInput';
 import LoadingState from '@/components/LoadingState';
 import ResultsDisplay from '@/components/ResultsDisplay';
 
-type AppState = 'input' | 'resolving' | 'generating' | 'results' | 'error';
+type AppState = 'input' | 'resolving' | 'generating' | 'results' | 'error' | 'upload';
 
 interface ProfileData {
   displayName: string;
@@ -134,6 +134,76 @@ export default function Home() {
     setError('');
   };
 
+  const handleUploadClick = () => {
+    setState('upload');
+    setError('');
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Validate file type
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file');
+      return;
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Image must be less than 5MB');
+      return;
+    }
+
+    try {
+      setState('generating');
+      
+      // Convert image to base64
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        const base64String = reader.result as string;
+        
+        // Generate outfit with uploaded image
+        const generateResponse = await fetch('/api/generate-outfit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            imageUrl: base64String, // Send base64 directly
+            username: handle
+          }),
+        });
+
+        if (!generateResponse.ok) {
+          const errorData = await generateResponse.json();
+          throw new Error(errorData.error || 'Failed to generate outfit');
+        }
+
+        const { image } = await generateResponse.json();
+
+        setResultData({
+          originalImageUrl: base64String,
+          generatedImageBase64: image,
+          displayName: handle,
+        });
+        setState('results');
+      };
+      
+      reader.onerror = () => {
+        throw new Error('Failed to read image file');
+      };
+      
+      reader.readAsDataURL(file);
+    } catch (err) {
+      console.error('Error:', err);
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Failed to process image. Please try again.'
+      );
+      setState('error');
+    }
+  };
+
   return (
     <main className="min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto">
@@ -190,12 +260,69 @@ export default function Home() {
                   Oops! Something went wrong
                 </h3>
                 <p className="text-red-600">{error}</p>
+                <p className="text-gray-600 text-sm mt-2">
+                  Can't find your avatar? Upload your own photo instead!
+                </p>
               </div>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <button
+                  onClick={handleReset}
+                  className="px-6 py-3 rounded-xl font-semibold text-gray-700 bg-gray-200 hover:bg-gray-300 hover:scale-105 active:scale-95 transition-all duration-200"
+                >
+                  Try Another Handle
+                </button>
+                <button
+                  onClick={handleUploadClick}
+                  className="px-6 py-3 rounded-xl font-semibold text-white bg-gradient-sol hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+                >
+                  📤 Upload Your Photo
+                </button>
+              </div>
+            </div>
+          )}
+
+          {state === 'upload' && (
+            <div className="space-y-6 text-center animate-fade-in">
+              <div className="text-6xl">📸</div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold text-gray-800">
+                  Upload Your Photo
+                </h3>
+                <p className="text-gray-600">
+                  Upload a photo of yourself to generate your RAAVE outfit!
+                </p>
+                <p className="text-sm text-gray-500">
+                  Handle: <span className="font-semibold text-sol-orange">{handle}</span>
+                </p>
+              </div>
+              
+              <div className="max-w-md mx-auto">
+                <label className="block">
+                  <div className="border-2 border-dashed border-sol-orange rounded-xl p-8 cursor-pointer hover:bg-sol-orange/5 transition-colors">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                    <div className="space-y-2">
+                      <div className="text-4xl">🖼️</div>
+                      <p className="text-gray-700 font-medium">
+                        Click to select a photo
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        JPG, PNG, or GIF (max 5MB)
+                      </p>
+                    </div>
+                  </div>
+                </label>
+              </div>
+
               <button
                 onClick={handleReset}
-                className="py-3 px-6 rounded-xl font-semibold text-white bg-gradient-sol hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+                className="text-sm text-gray-600 hover:text-gray-800 underline"
               >
-                Try Again
+                ← Back to search
               </button>
             </div>
           )}
