@@ -75,14 +75,20 @@ export async function POST(request: NextRequest) {
     // Save to database for caching
     if (username) {
       // Get the style that was assigned to this user
-      const style = await getAssignedStyle(username);
-      await saveOutfit({
+      const style = getAssignedStyle(username);
+      const saved = await saveOutfit({
         handle: username,
         platform: 'twitter',
         style,
         originalImageUrl: imageUrl,
         generatedImageBase64,
       });
+      
+      if (saved) {
+        console.log(`[API] Successfully saved outfit for ${username}`);
+      } else {
+        console.error(`[API] Failed to save outfit for ${username}`);
+      }
     }
 
     // Return the generated image as base64

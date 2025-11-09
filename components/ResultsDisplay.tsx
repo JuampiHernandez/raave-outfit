@@ -47,32 +47,9 @@ export default function ResultsDisplay({
         </p>
       </div>
 
-      {/* Image comparison - For debugging */}
-      <div className="grid md:grid-cols-2 gap-6">
-        {/* Original Twitter Profile Picture */}
-        <div className="space-y-3">
-          <h3 className="text-sm font-medium text-gray-700 text-center">
-            Original Twitter Profile Picture
-          </h3>
-          <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-gray-300 shadow-lg">
-            <Image
-              src={originalImageUrl}
-              alt="Original Twitter avatar"
-              fill
-              className="object-cover"
-              unoptimized
-            />
-          </div>
-          <p className="text-xs text-gray-500 text-center break-all">
-            Source: {originalImageUrl}
-          </p>
-        </div>
-
-        {/* Generated RAAVE Outfit */}
-        <div className="space-y-3">
-          <h3 className="text-sm font-medium text-gray-700 text-center">
-            Your RAAVE Outfit ✨
-          </h3>
+      {/* Generated RAAVE Outfit - Center Display */}
+      <div className="flex justify-center">
+        <div className="w-full max-w-md space-y-3">
           <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-sol-orange shadow-2xl ring-4 ring-sol-yellow/30">
             <Image
               src={`data:image/png;base64,${generatedImageBase64}`}
@@ -83,7 +60,7 @@ export default function ResultsDisplay({
             />
           </div>
           <p className="text-xs text-gray-500 text-center">
-            AI Generated with Gemini
+            AI Generated with Google Gemini ✨
           </p>
         </div>
       </div>

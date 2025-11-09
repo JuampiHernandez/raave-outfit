@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Multiple avatar services to try in order (fallback strategy)
+/**
+ * Resolve Twitter identity and fetch avatar
+ * Multiple avatar services to try in order (fallback strategy)
+ */
 const AVATAR_SERVICES = [
   {
     name: 'Unavatar (X)',

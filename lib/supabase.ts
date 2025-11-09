@@ -33,22 +33,31 @@ export interface OutfitRecord {
  * Get cached outfit for a handle
  */
 export async function getCachedOutfit(handle: string): Promise<OutfitRecord | null> {
-  if (!supabase) return null;
+  if (!supabase) {
+    console.warn('[Supabase] Client not initialized');
+    return null;
+  }
+
+  const normalizedHandle = handle.toLowerCase();
+  console.log(`[Supabase] Looking for cached outfit for: ${normalizedHandle}`);
 
   try {
     const { data, error } = await supabase
       .from('outfits')
       .select('*')
-      .eq('handle', handle.toLowerCase())
+      .eq('handle', normalizedHandle)
       .single();
 
     if (error) {
-      if (error.code !== 'PGRST116') { // PGRST116 = not found
+      if (error.code === 'PGRST116') { 
+        console.log(`[Supabase] No cached outfit found for: ${normalizedHandle}`);
+      } else {
         console.error('[Supabase] Error fetching cached outfit:', error);
       }
       return null;
     }
 
+    console.log(`[Supabase] ✅ Found cached outfit for: ${normalizedHandle}`);
     return data as OutfitRecord;
   } catch (error) {
     console.error('[Supabase] Exception fetching cached outfit:', error);
@@ -66,13 +75,19 @@ export async function saveOutfit(data: {
   originalImageUrl: string | null;
   generatedImageBase64: string;
 }): Promise<boolean> {
-  if (!supabase) return false;
+  if (!supabase) {
+    console.warn('[Supabase] Client not initialized, cannot save outfit');
+    return false;
+  }
+
+  const normalizedHandle = data.handle.toLowerCase();
+  console.log(`[Supabase] Attempting to save outfit for: ${normalizedHandle}`);
 
   try {
     const { error } = await supabase
       .from('outfits')
       .upsert({
-        handle: data.handle.toLowerCase(),
+        handle: normalizedHandle,
         platform: data.platform,
         style: data.style,
         original_image_url: data.originalImageUrl,
@@ -83,14 +98,14 @@ export async function saveOutfit(data: {
       });
 
     if (error) {
-      console.error('[Supabase] Error saving outfit:', error);
+      console.error('[Supabase] ❌ Error saving outfit:', error);
       return false;
     }
 
-    console.log(`[Supabase] Saved outfit for ${data.handle}`);
+    console.log(`[Supabase] ✅ Successfully saved outfit for ${normalizedHandle} with style: ${data.style}`);
     return true;
   } catch (error) {
-    console.error('[Supabase] Exception saving outfit:', error);
+    console.error('[Supabase] ❌ Exception saving outfit:', error);
     return false;
   }
 }
