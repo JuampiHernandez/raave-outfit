@@ -166,8 +166,19 @@ ${userStyle.description}
     });
 
     // Extract the generated image
-    for (const part of response.candidates[0].content.parts) {
-      if (part.inlineData) {
+    if (!response.candidates || response.candidates.length === 0) {
+      console.error('No candidates in Gemini response');
+      return null;
+    }
+
+    const candidate = response.candidates[0];
+    if (!candidate || !candidate.content || !candidate.content.parts) {
+      console.error('Invalid candidate structure in Gemini response');
+      return null;
+    }
+
+    for (const part of candidate.content.parts) {
+      if (part.inlineData && part.inlineData.data) {
         return part.inlineData.data;
       }
     }
