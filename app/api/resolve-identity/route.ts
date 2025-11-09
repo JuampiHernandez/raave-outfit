@@ -13,17 +13,9 @@ const AVATAR_SERVICES = [
     name: 'Unavatar (Twitter)',
     url: (handle: string) => `https://unavatar.io/twitter/${handle}`,
   },
-  {
-    name: 'Unavatar (GitHub)', // Many people use same handle across platforms
-    url: (handle: string) => `https://unavatar.io/github/${handle}`,
-  },
-  {
-    name: 'UI Avatars (Generated Fallback)',
-    url: (handle: string) => `https://ui-avatars.com/api/?name=${encodeURIComponent(handle)}&size=400&background=FF8C00&color=fff&bold=true&format=png`,
-  },
 ];
 
-async function fetchAvatarWithFallback(handle: string): Promise<string> {
+async function fetchAvatarWithFallback(handle: string): Promise<string | null> {
   console.log(`[DEBUG] Starting avatar fetch for: ${handle}`);
   
   for (const service of AVATAR_SERVICES) {
@@ -51,12 +43,6 @@ async function fetchAvatarWithFallback(handle: string): Promise<string> {
         
         // Check if it's an actual image (not HTML)
         if (contentType?.includes('image')) {
-          // For UI Avatars (generated fallback), always accept
-          if (service.name.includes('UI Avatars')) {
-            console.log(`[SUCCESS] Using generated avatar via ${service.name}`);
-            return url;
-          }
-          
           // Unavatar's default placeholder is exactly 1506 bytes
           // Reject it and try next service
           if (size === 1506) {
@@ -75,10 +61,8 @@ async function fetchAvatarWithFallback(handle: string): Promise<string> {
     }
   }
   
-  // If all services fail, return the last fallback (UI Avatars) which always works
-  const fallbackUrl = AVATAR_SERVICES[AVATAR_SERVICES.length - 1].url(handle);
-  console.log(`[FALLBACK] Using generated avatar as last resort: ${fallbackUrl}`);
-  return fallbackUrl;
+  console.error(`[ERROR] All avatar services failed for ${handle}`);
+  return null;
 }
 
 export async function POST(request: NextRequest) {
@@ -104,8 +88,15 @@ export async function POST(request: NextRequest) {
     // Clean the handle (remove @ if present)
     const cleanHandle = handle.replace(/^@/, '').trim();
 
-    // Try multiple avatar services with fallback (always returns a URL)
+    // Try multiple avatar services with fallback
     const imageUrl = await fetchAvatarWithFallback(cleanHandle);
+    
+    if (!imageUrl) {
+      return NextResponse.json(
+        { error: 'Profile not found or avatar unavailable. The account might be private, suspended, or the handle is incorrect.' },
+        { status: 404 }
+      );
+    }
     
     console.log(`[API] Successfully resolved avatar for ${cleanHandle}: ${imageUrl}`);
 
