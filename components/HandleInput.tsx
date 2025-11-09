@@ -53,44 +53,53 @@ export default function HandleInput({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
-      <label className="block text-sm font-medium text-gray-700">
-        Enter Twitter Handle
-      </label>
-      <div className="relative">
-        <input
-          type="text"
-          value={value}
-          onChange={handleChange}
-          placeholder={getPlatformPlaceholder()}
-          disabled={isLoading}
-          className={`
-            w-full px-4 py-3 rounded-xl border-2 
-            focus:outline-none focus:ring-2 focus:ring-sol-orange
-            disabled:bg-gray-100 disabled:cursor-not-allowed
-            ${error ? 'border-red-400' : 'border-gray-200'}
-          `}
-        />
-        {error && (
-          <p className="mt-1 text-sm text-red-600">{error}</p>
-        )}
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Input Section */}
+      <div className="space-y-3">
+        <label className="block text-lg font-semibold text-gray-800 text-center">
+          Enter Your Twitter Handle
+        </label>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <span className="text-gray-400 text-lg">@</span>
+          </div>
+          <input
+            type="text"
+            value={value}
+            onChange={handleChange}
+            placeholder={getPlatformPlaceholder()}
+            disabled={isLoading}
+            className={`
+              w-full pl-10 pr-4 py-4 text-lg rounded-2xl border-2 
+              focus:outline-none focus:ring-4 focus:ring-sol-orange/30 focus:border-sol-orange
+              disabled:bg-gray-100 disabled:cursor-not-allowed
+              transition-all duration-200
+              ${error ? 'border-red-400' : 'border-gray-300 hover:border-sol-orange/50'}
+            `}
+          />
+          {error && (
+            <p className="mt-2 text-sm text-red-600 text-center">{error}</p>
+          )}
+        </div>
       </div>
+
+      {/* Submit Button */}
       <button
         type="submit"
         disabled={isLoading || !value.trim() || !!error}
         className={`
-          w-full py-3 px-6 rounded-xl font-semibold text-white
-          transition-all duration-200
+          w-full py-4 px-6 rounded-2xl font-bold text-lg text-white
+          transition-all duration-200 shadow-lg
           ${
             isLoading || !value.trim() || error
               ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gradient-sol hover:shadow-lg hover:scale-105 active:scale-95'
+              : 'bg-gradient-sol hover:shadow-2xl hover:scale-105 active:scale-95'
           }
         `}
       >
         {isLoading ? (
           <span className="flex items-center justify-center gap-2">
-            <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+            <svg className="animate-spin h-6 w-6" viewBox="0 0 24 24">
               <circle
                 className="opacity-25"
                 cx="12"
@@ -106,12 +115,17 @@ export default function HandleInput({
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               />
             </svg>
-            Styling...
+            Styling Your Outfit...
           </span>
         ) : (
-          'Style Me! 🎨'
+          '✨ Get My RAAVE Outfit ✨'
         )}
       </button>
+
+      {/* Helper Text */}
+      <p className="text-center text-sm text-gray-500">
+        We'll find your Twitter profile and create your perfect RAAVE outfit!
+      </p>
     </form>
   );
 }

@@ -225,9 +225,29 @@ export default function Home() {
   return (
     <main className="min-h-screen p-4 sm:p-8">
       <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <header className="text-center space-y-4 mb-12">
-          <div className="flex justify-end mb-4">
+        {/* Header - Only show on input state */}
+        {state === 'input' && (
+          <header className="text-center space-y-4 mb-12 animate-fade-in">
+            <div className="flex justify-end mb-4">
+              <a
+                href="/gallery"
+                className="px-4 py-2 text-sol-orange hover:text-sol-red border-2 border-sol-orange hover:border-sol-red rounded-lg transition-colors font-medium"
+              >
+                View Gallery 🎨
+              </a>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-sol bg-clip-text text-transparent">
+              RAAVE Outfitter
+            </h1>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+              Not sure what to wear during the raave? Just enter your handle and we will get you the perfect fit ;)
+            </p>
+          </header>
+        )}
+
+        {/* Gallery button for non-input states */}
+        {state !== 'input' && (
+          <div className="flex justify-end mb-6">
             <a
               href="/gallery"
               className="px-4 py-2 text-sol-orange hover:text-sol-red border-2 border-sol-orange hover:border-sol-red rounded-lg transition-colors font-medium"
@@ -235,16 +255,10 @@ export default function Home() {
               View Gallery 🎨
             </a>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold bg-gradient-sol bg-clip-text text-transparent">
-            RAAVE Outfitter
-          </h1>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Not sure what to wear during the raave? Just enter your handle and we will get you the perfect fit ;)
-          </p>
-        </header>
+        )}
 
         {/* Main Content */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-8">
+        <div className={`bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-6 sm:p-8 ${state === 'input' ? 'border-4 border-sol-orange/20' : ''}`}>
           {state === 'input' && (
             <div className="space-y-6 animate-fade-in">
               <HandleInput
