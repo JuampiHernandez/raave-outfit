@@ -15,7 +15,8 @@ const RAVE_STYLES = [
 - Harness-style straps, utility vest, or structured jacket
 - Tech pants with straps/buckles, combat boots
 - Hard-edged, angular patterns
-- Dark + vibrant color contrast`,
+- Dark + vibrant color contrast
+- ACCESSORIES: Futuristic visor sunglasses or wraparound shades in orange/red tint`,
   },
   {
     name: 'BEACH SUNSET',
@@ -24,7 +25,8 @@ const RAVE_STYLES = [
 - Open shirt or loose tank with sunset color flow (orange→yellow→purple)
 - Comfortable shorts or linen pants
 - Relaxed, breezy aesthetic
-- Natural gradient transitions`,
+- Natural gradient transitions
+- ACCESSORIES: Colorful bandana or headband with flower patterns`,
   },
   {
     name: 'NEO Y2K',
@@ -33,7 +35,8 @@ const RAVE_STYLES = [
 - Crop tops, low-rise pants, or chunky platform shoes
 - Tech-meets-fashion aesthetic
 - Holographic or reflective accents
-- Bold 2000s silhouettes`,
+- Bold 2000s silhouettes
+- ACCESSORIES: Tiny oval sunglasses or colored lens glasses (pink/purple/yellow)`,
   },
   {
     name: 'STREET HYPEBEAST',
@@ -42,7 +45,8 @@ const RAVE_STYLES = [
 - Baggy pants or cargo joggers
 - Chunky sneakers with colored accents
 - Streetwear meets rave energy
-- Logo placements, bold graphics`,
+- Logo placements, bold graphics
+- ACCESSORIES: Snapback cap or bucket hat in Colores del Sol colors`,
   },
   {
     name: 'MINIMAL LUXURY',
@@ -51,7 +55,8 @@ const RAVE_STYLES = [
 - Sleek silhouettes, perfect fit
 - Designer aesthetic (think high-end club wear)
 - Subtle color accents, no patterns
-- Sophisticated and polished`,
+- Sophisticated and polished
+- ACCESSORIES: Sleek aviator or round frame sunglasses with subtle tint`,
   },
   {
     name: 'FESTIVAL FREE SPIRIT',
@@ -60,7 +65,8 @@ const RAVE_STYLES = [
 - Layered pieces, flowing elements
 - Mix of textures and prints
 - Comfortable and expressive
-- Artistic, creative vibe`,
+- Artistic, creative vibe
+- ACCESSORIES: Flower crown or wide-brim hat with colorful ribbons/flowers`,
   },
 ];
 
@@ -154,8 +160,10 @@ ${userStyle.description}
 - Ensure proper fabric textures, folds, and shadows
 - Make it look like they're dressed for a real rave in Buenos Aires
 - The edit should look professional and seamless
+- IMPORTANT: Include the specified accessories (sunglasses, hats, headbands, etc.) as part of the outfit
+- Accessories should match the overall style and color scheme
 
-⚠️ REMINDER: The result must look like the SAME PERSON wearing different clothes. Face, background, pose - ALL must remain IDENTICAL.`,
+⚠️ REMINDER: The result must look like the SAME PERSON wearing different clothes and accessories. Face, facial features, background, pose - ALL must remain IDENTICAL. Only clothing and accessories change.`,
       },
     ];
 

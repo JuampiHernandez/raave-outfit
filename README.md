@@ -95,7 +95,7 @@ Create these images in the `/public` folder:
 
 1. **icon.png** - App icon (1024x1024px, PNG)
 2. **splash.png** - Splash screen (200x200px recommended, PNG)
-3. **og-image.png** - Social sharing image (1200x630px, PNG/JPG)
+3. **raave-banner.png** - Social sharing image (1500x500px, PNG) - Currently in use
 4. **hero.png** - Hero image (1200x630px, PNG/JPG)
 5. **screenshot1.png, screenshot2.png, screenshot3.png** - App screenshots (1284x2778px portrait, PNG)
 
