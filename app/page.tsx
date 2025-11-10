@@ -226,25 +226,25 @@ export default function Home() {
     <main className="min-h-screen p-4 sm:p-8 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {/* Colorful circles */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-sol-yellow/20 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-40 h-40 bg-sol-orange/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        {/* Colorful circles - subtle in corners */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-sol-yellow/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-10 right-10 w-40 h-40 bg-sol-orange/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute bottom-20 left-20 w-36 h-36 bg-sol-red/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         <div className="absolute bottom-40 right-10 w-44 h-44 bg-sol-purple/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
         
-        {/* Floating emoji decorations */}
-        <div className="absolute top-20 left-1/4 text-4xl animate-bounce" style={{ animationDuration: '3s', animationDelay: '0s' }}>🎵</div>
-        <div className="absolute top-1/3 right-1/4 text-3xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>🌺</div>
+        {/* Floating emoji decorations - middle and bottom only */}
+        <div className="absolute top-1/2 left-1/4 text-3xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>🌺</div>
         <div className="absolute bottom-1/3 left-1/3 text-3xl animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '0.5s' }}>🎧</div>
-        <div className="absolute top-1/2 right-1/3 text-4xl animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '2s' }}>🌸</div>
+        <div className="absolute top-2/3 right-1/3 text-4xl animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '2s' }}>🌸</div>
         <div className="absolute bottom-20 left-1/2 text-3xl animate-bounce" style={{ animationDuration: '3s', animationDelay: '1.5s' }}>🎶</div>
-        <div className="absolute top-1/4 right-1/2 text-3xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.8s' }}>🌼</div>
+        <div className="absolute bottom-1/4 right-1/4 text-3xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.8s' }}>🌼</div>
+        <div className="absolute top-3/4 left-1/4 text-4xl animate-bounce" style={{ animationDuration: '3s', animationDelay: '0s' }}>🎵</div>
         
-        {/* Small sparkles */}
-        <div className="absolute top-1/4 left-1/2 text-2xl animate-ping" style={{ animationDuration: '2s' }}>✨</div>
+        {/* Small sparkles - lower section only */}
+        <div className="absolute top-2/3 left-1/2 text-2xl animate-ping" style={{ animationDuration: '2s' }}>✨</div>
         <div className="absolute bottom-1/4 right-1/2 text-2xl animate-ping" style={{ animationDuration: '2.5s', animationDelay: '1s' }}>✨</div>
-        <div className="absolute top-2/3 left-1/4 text-xl animate-ping" style={{ animationDuration: '3s', animationDelay: '0.5s' }}>⭐</div>
-        <div className="absolute bottom-1/2 right-1/4 text-xl animate-ping" style={{ animationDuration: '2.8s', animationDelay: '1.2s' }}>⭐</div>
+        <div className="absolute top-3/4 left-1/3 text-xl animate-ping" style={{ animationDuration: '3s', animationDelay: '0.5s' }}>⭐</div>
+        <div className="absolute bottom-1/3 right-1/3 text-xl animate-ping" style={{ animationDuration: '2.8s', animationDelay: '1.2s' }}>⭐</div>
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">

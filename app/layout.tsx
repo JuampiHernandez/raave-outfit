@@ -13,14 +13,12 @@ export const metadata: Metadata = {
     title: 'RAAVE Outfitter - Get Your Perfect Outfit',
     description:
       'Not sure what to wear during the raave? Get your perfect outfit now!',
-    images: ['/og-default.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'RAAVE Outfitter - Get Your Perfect Outfit',
     description:
       'Not sure what to wear during the raave? Get your perfect outfit now!',
-    images: ['/og-default.png'],
   },
 };
 
