@@ -112,25 +112,32 @@ export async function saveOutfit(data: {
 
 /**
  * Get all outfits for gallery (paginated)
+ * Note: Fetches all fields including large base64 images
  */
 export async function getAllOutfits(limit = 50, offset = 0): Promise<OutfitRecord[]> {
-  if (!supabase) return [];
+  if (!supabase) {
+    console.error('[Supabase] Client not initialized - cannot fetch outfits');
+    return [];
+  }
 
   try {
+    // Fetch with a smaller limit to avoid timeout (max 6 at a time due to large base64 images)
+    const actualLimit = Math.min(limit, 6);
+    
     const { data, error } = await supabase
       .from('outfits')
       .select('*')
       .order('created_at', { ascending: false })
-      .range(offset, offset + limit - 1);
+      .range(offset, offset + actualLimit - 1);
 
     if (error) {
-      console.error('[Supabase] Error fetching all outfits:', error);
+      console.error('[Supabase] Error fetching outfits:', error);
       return [];
     }
 
     return (data as OutfitRecord[]) || [];
   } catch (error) {
-    console.error('[Supabase] Exception fetching all outfits:', error);
+    console.error('[Supabase] Exception fetching outfits:', error);
     return [];
   }
 }

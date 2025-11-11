@@ -15,9 +15,12 @@ export async function GET(request: NextRequest) {
       count: outfits.length,
     });
   } catch (error) {
-    console.error('Error in gallery:', error);
+    console.error('[Gallery API] Error:', error);
     return NextResponse.json(
-      { error: 'Failed to load gallery' },
+      { 
+        error: 'Failed to load gallery',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }

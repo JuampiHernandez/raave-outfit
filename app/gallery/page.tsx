@@ -8,29 +8,76 @@ import type { OutfitRecord } from '@/lib/supabase';
 export default function GalleryPage() {
   const [outfits, setOutfits] = useState<OutfitRecord[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState('');
+  const [hasMore, setHasMore] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const LIMIT = 6; // Reduced to avoid timeout with large base64 images
 
   useEffect(() => {
     fetchGallery();
   }, []);
 
-  const fetchGallery = async () => {
+  const fetchGallery = async (loadMore = false) => {
     try {
-      setLoading(true);
-      const response = await fetch('/api/gallery');
+      if (loadMore) {
+        setLoadingMore(true);
+      } else {
+        setLoading(true);
+      }
+      setError('');
+      
+      const currentOffset = loadMore ? offset : 0;
+      
+      // Add timeout for slow requests (30s due to large base64 images)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
+      
+      const response = await fetch(`/api/gallery?limit=${LIMIT}&offset=${currentOffset}`, {
+        signal: controller.signal
+      });
+      
+      clearTimeout(timeoutId);
       
       if (!response.ok) {
-        throw new Error('Failed to load gallery');
+        const errorData = await response.json();
+        console.error('[Gallery] API error:', errorData);
+        throw new Error(errorData.details || 'Failed to load gallery');
       }
 
       const data = await response.json();
-      setOutfits(data.outfits || []);
+      const newOutfits = data.outfits || [];
+      
+      if (loadMore) {
+        setOutfits(prev => [...prev, ...newOutfits]);
+      } else {
+        setOutfits(newOutfits);
+      }
+      
+      // Update offset for next load
+      setOffset(currentOffset + LIMIT);
+      
+      // Show "Load More" button if we got a full batch (meaning there might be more)
+      setHasMore(newOutfits.length === LIMIT);
     } catch (err) {
-      console.error('Error loading gallery:', err);
-      setError('Failed to load gallery');
+      console.error('[Gallery] ❌ Error loading gallery:', err);
+      if (err instanceof Error && err.name === 'AbortError') {
+        setError('Request timed out. Please try again.');
+        // Keep "Load More" button visible on timeout (there might be more outfits)
+        if (loadMore) {
+          setHasMore(true);
+        }
+      } else {
+        setError(err instanceof Error ? err.message : 'Failed to load gallery');
+      }
     } finally {
       setLoading(false);
+      setLoadingMore(false);
     }
+  };
+
+  const loadMore = () => {
+    fetchGallery(true);
   };
 
   return (
@@ -125,6 +172,44 @@ export default function GalleryPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* Load More Button */}
+                {hasMore && (
+                  <div className="mt-8 text-center space-y-3">
+                    {error && !loading && (
+                      <p className="text-sm text-red-600">{error}</p>
+                    )}
+                    <button
+                      onClick={loadMore}
+                      disabled={loadingMore}
+                      className="px-8 py-3 bg-gradient-sol text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {loadingMore ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                              fill="none"
+                            />
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            />
+                          </svg>
+                          Loading...
+                        </span>
+                      ) : (
+                        'Load More Outfits'
+                      )}
+                    </button>
+                  </div>
+                )}
               </>
             )}
           </>
