@@ -29,9 +29,9 @@ export default function GalleryPage() {
       
       const currentOffset = loadMore ? offset : 0;
       
-      // Add timeout for slow requests (30s due to large base64 images)
+      // Add timeout for slow requests (45s due to large base64 images)
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000);
+      const timeoutId = setTimeout(() => controller.abort(), 60000);
       
       const response = await fetch(`/api/gallery?limit=${LIMIT}&offset=${currentOffset}`, {
         signal: controller.signal
