@@ -118,7 +118,7 @@ export default function GalleryPage() {
           <div className="text-center py-20">
             <p className="text-red-600">{error}</p>
             <button
-              onClick={fetchGallery}
+              onClick={() => fetchGallery()}
               className="mt-4 px-6 py-2 bg-sol-orange text-white rounded-lg hover:bg-sol-red transition-colors"
             >
               Try Again
