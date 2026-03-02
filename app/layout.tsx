@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   description:
     'Not sure what to wear during the raave? Enter your Twitter handle and get your perfect outfit featuring vibrant Colores del Sol!',
   metadataBase: new URL(APP_URL),
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
   openGraph: {
     type: 'website',
     url: APP_URL,
@@ -35,6 +39,10 @@ export const metadata: Metadata = {
     description:
       'Not sure what to wear during the raave? Get your perfect outfit now!',
     images: [`${APP_URL}/raave-banner.png`],
+  },
+  other: {
+    'talentapp:project_verification':
+      '2e14b87629d022734595516133b5c6c5367d1f4eb6b788691742dbbf00ee052c410c1d3ddda0b4978379b86a6e119a082ede8e42a8e6358740a90d0359626498',
   },
 };
 
